@@ -1,0 +1,51 @@
+<div class="container" style="border:2px solid black">
+  <h3 class="text-center text-danger">ngIf Cocept</h3>
+    <div class="row p-2">
+      <div class="col-md-3  " >
+        <h3 class="bg-primary p-3" *ngIf="isShow">Div 1</h3>
+        
+      </div>
+      
+      <div class="col-md-3  ">
+        <h3 class=" bg-success text-light p-3" *ngIf="fName==lName">Div 2</h3>
+      </div>
+      <div class="col-md-3  " >
+        <h3 class=" bg-danger text-light p-3" *ngIf="getVisible()">Div 3</h3>
+      </div>
+      <div class="col-md-3 ">
+        <h3 class=" bg-info text-light p-3" *ngIf="isActiveDiv4">Div 4</h3>
+      </div>
+    </div>
+    <div class="row mt-4 mb-4">
+        <div class="col-md-3  ">
+            <div class="text-center">
+                <button class="btn btn-danger mx-4" (click)="hideDiv1()" >hide</button>
+                <button class="btn btn-primary mx-2" (click)="showDiv1()">Show</button>
+                <button class="btn btn-primary" (click)="isShow=!isShow">Toggle</button>
+              </div>
+          
+        </div>
+        
+        <div class="col-md-3  ">
+            <div class="text-center">
+                <button class="btn btn-danger mx-4">hide</button>
+                <button class="btn btn-primary">Show</button>
+              </div>
+        </div>
+        <div class="col-md-3  ">
+            <div class="text-center">
+                <button class="btn btn-danger mx-4" (click)="hideDiv3()">hide</button>
+                <button class="btn btn-primary" (click)="showDiv3()">Show</button>
+              </div>
+        </div>
+        <div class="col-md-3 ">
+            <div class="text-center">
+                <button class="btn btn-danger mx-4" (click)="isActiveDiv4=false" >hide</button>
+                <button class="btn btn-primary" (click)="isActiveDiv4=true">Show</button>
+              </div>
+        </div>
+      </div>
+  
+  
+    
+  </div>

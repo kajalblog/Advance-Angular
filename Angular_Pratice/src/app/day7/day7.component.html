@@ -1,0 +1,54 @@
+<div class="container" >
+<div class="container" style="border:2px solid black" >
+  <div class="row">
+    <div class="row justify-content-center mb-2 py-3">
+      <div class="col-md-3">
+        <input  class="form-control" type="text" [(ngModel)]="searchObj.CandidateId">
+      </div>
+      <div class="col-md-3">
+        <input  class="form-control" type="date" [(ngModel)]="searchObj.FromDate">
+      </div>
+      <div class="col-md-3">
+        <input  class="form-control" type="date" [(ngModel)]="searchObj.ToDate">
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-primary mx-4" (click)="onSerach()">Search </button>
+      </div>
+    </div>
+    <table class=" table table-bordered table-hover">
+      <thead>
+          <tr>
+              <th>id</th>
+              <th>Name</th>
+              <th>Email</th>
+              <!-- <th>Contact</th> -->
+              <!-- <th>Contact No</th> -->
+              <th>Address</th>
+              <!-- <th>Stream</th> -->
+              <!-- <th>Status</th> -->
+              <th>Action</th>
+          </tr>
+      </thead>
+<tbody>
+<tr *ngFor="let list of AllUser; let srNo=index; let isFirst=first;let isLast=last" >
+<td>{{srNo+1}}</td>
+<!-- access data using function -->
+<!-- <td>{{getFullname(list.fname,list.lname)}}</td> -->
+<!-- {{list.fname}} {{list.lname}} -->
+<td>{{list.CandidateId}}</td>
+<td>{{list.FromDate |na:'NA' }}</td>
+
+<td>{{list.ToDate|date}}
+
+</td>
+<!-- <td>{{list.stream | na:'__'}}</td> -->
+<!-- <td>{{list.colorCode}}</td> -->
+
+
+<td>{{isFirst? 'First Record':''}} {{isLast ?'Last Record':''}}</td>
+<!-- <td><button class="btn btn-success" (click)="onEdit(list)">Edit</button> &nbsp; <button class="btn btn-danger">Delete</button></td> -->
+</tr>
+</tbody>
+  </table>
+  </div>
+</div>

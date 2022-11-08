@@ -1,0 +1,14 @@
+<div class="container mb-3" style="border:2px solid black">
+<h1>Home component</h1>
+<h2>Total cart:{{items.length}}</h2>
+<h1>user data via services{{cart.length}}</h1>
+<div class="row">
+  <div class="col-md-6">
+    <input type="text" class="form-control mb-4" #student>
+    <button class="btn btn-success mb-4" (click)="addStudent(student)">Add User</button>
+   
+  </div>
+</div>
+</div>
+
+<app-cart [studentval]="stud" (totalCart)="updatedcart($event)"></app-cart>

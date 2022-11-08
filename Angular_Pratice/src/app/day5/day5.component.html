@@ -1,0 +1,38 @@
+<div class="container" style="border:2px solid black">
+  <div class="row">
+    <table class=" table table-bordered table-hover">
+      <thead>
+          <tr>
+              <th>id</th>
+              <th>Name</th>
+              <th>Email</th>
+              <!-- <th>Contact</th> -->
+              <!-- <th>Contact No</th> -->
+              <th>Address</th>
+              <th>Stream</th>
+              <th>Status</th>
+              <th>Gender</th>
+          </tr>
+      </thead>
+<tbody>
+<tr *ngFor="let list of studentData; let srNo=index; let isFirst=first;let isLast=last" >
+<td>{{srNo+1}}</td>
+<!-- access data using function -->
+<!-- <td>{{getFullname(list.fname,list.lname)}}</td> -->
+<!-- {{list.fname}} {{list.lname}} -->
+<td>{{list.name | uppercase}}</td>
+<td>{{list.email |na:'NA' }}</td>
+
+<td>{{list.city}}
+
+</td>
+<td>{{list.stream | na:'__'}}</td>
+<td>{{list.colorCode}}</td>
+
+
+<td>{{isFirst? 'First Record':''}} {{isLast ?'Last Record':''}}</td>
+</tr>
+</tbody>
+  </table>
+  </div>
+</div>

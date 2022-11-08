@@ -1,0 +1,33 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "Users": [
+    {
+      "id": 1,
+      "name": "Kajal",
+      "email": "kajal@gmail.com",
+      "password": "12345"
+    },
+    {
+      "name": "Poonam",
+      "email": "poonam@gmail.com",
+      "password": "123",
+      "id": 2
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

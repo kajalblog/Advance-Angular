@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-left rounded shadow bg-light py-4">
+      <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+        <div class="text-center"><h1>Sign Up</h1></div>
+        <div class="mb-4">
+          <label for="text" class="form-label">Name</label>
+          <input class="form-control" placeholder="Enter name" type="text" formControlName="name">
+          <div *ngIf="signUpForm.controls.name.touched">
+            <span class="text-danger" *ngIf="signUpForm.controls.name.errors?.required">Please Enter Name</span>
+
+          </div>
+        </div>
+        <div class="mb-4">
+          <label for="text" class="form-label">Email address</label>
+          <input class="form-control" placeholder="Enter email address" type="email" formControlName="email">
+          <div *ngIf="signUpForm.controls.email.touched">
+            <span class="text-danger" *ngIf="signUpForm.controls.email.errors?.required">Please Enter email</span>
+
+          </div>
+        </div>
+        <div class="mb-4">
+          <label for="text" class="form-label">Password</label>
+          <input class="form-control" placeholder="Enter password" type="password" formControlName="password">
+          <div *ngIf="signUpForm.controls.password.touched">
+            <span class="text-danger" *ngIf="signUpForm.controls.password.errors?.required">Please Enter password</span>
+
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary text-center">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,105 @@
+<div class="container bg-gray mt-4" style="border:2px solid black">
+    <h3>ngFor Concept</h3>
+    <div class="row p-4">
+        <div class="col-md-3">
+            <h5>Array</h5>
+            <select class="form-control">
+                <option *ngFor="let city of cityArr">
+                    {{city}}
+                </option>
+
+            </select>
+        </div>
+        <div class="col-md-3">
+            <h5>Array Of Object</h5>
+            <select class="form-control">
+
+                <!-- when ever we use array of object then binding is needed -->
+                <option *ngFor="let student of studentList" [value]="student.id">
+                    {{student.fname}} {{student.lname}}
+                </option>
+
+            </select>
+        </div>
+        <div class="col-md-3">
+            <h5> with Function(Array) </h5>
+            <select class="form-control">
+
+                <!-- we can also acces array value from function -->
+                <option *ngFor="let student of getStudent()" >
+                    {{student}}
+                </option>
+
+            </select>
+        </div>
+        <div class="col-md-3">
+            <h5> with Function(Array of object) </h5>
+            <select class="form-control">
+
+                <!-- we can also acces array value from function -->
+                <option *ngFor="let users of getUsers()" [value]="users.id">
+                    {{users.fname}} =>{{users.role}}
+                </option>
+
+            </select>
+        </div>
+    </div>
+    <div class="row">
+            <table class=" table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Contact</th>
+                        <th>Contact No</th>
+                        <th>Address</th>
+                        <th>Status</th>
+                        <th>Gender</th>
+                    </tr>
+                </thead>
+<tbody>
+    <tr *ngFor="let list of studentList; let srNo=index; let isFirst=first;let isLast=last" >
+        <td>{{srNo+1}}</td>
+        <!-- access data using function -->
+        <td>{{getFullname(list.fname,list.lname)}}</td>
+        <!-- {{list.fname}} {{list.lname}} -->
+        <td>{{list.role | uppercase}}</td>
+
+        <td>{{list.contactNumbers}}
+
+        </td>
+
+        <td>
+            <!-- fetch array in array of object  First we have to fetch array of object so used list.contacctNumber and access fields in array-->
+            <ul>
+                <li *ngFor="let contact of list.contactNumbers ">
+                    {{contact}}
+
+                </li>
+            </ul>
+        </td>
+        <td>
+                    {{list.address.add1}}
+                    {{list.address.add2}}
+
+        </td>
+        <td>{{isFirst? 'First Record':''}} {{isLast ?'Last Record':''}}</td>
+    </tr>
+</tbody>
+            </table>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <ul>
+                    <li *ngFor="let user of userList | async">
+                        {{user.id}} {{user.title}}
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+</div>

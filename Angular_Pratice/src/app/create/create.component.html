@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-left rounded shadow py-4">
+
+      <div class="alert alert-warning alert-dismissible fade show" role="alert"  *ngIf="successMsg">
+        <strong>{{successMsg}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <form [formGroup]="createUser" >
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Name</label>
+          <input type="text" class="form-control" formControlName="fullname">
+          <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+          <div *ngIf="createUser.controls.fullname.touched">
+            <span class="text-danger" *ngIf="createUser.controls.fullname.errors?.required">fullname is required</span>
+            <span class="text-danger" *ngIf="createUser.controls.fullname.errors?.minlength">fullname is required Min % characters</span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" formControlName="email">
+         <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+         <div *ngIf="createUser.controls.email.touched">
+          <span class="text-danger" *ngIf="createUser.controls.email.errors?.required">email is required</span>
+          <span class="text-danger" *ngIf="createUser.controls.email.errors?.pattern">Please enter valid email </span>
+        </div>
+        </div>
+        <div class="mb-3">
+          <label for="exam pleInputPassword1" class="form-label">Mobile Number</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" formControlName="mobile">
+          <div *ngIf="createUser.controls.mobile.touched">
+            <span class="text-danger" *ngIf="createUser.controls.mobile.errors?.required">mobile is required</span>
+            <span class="text-danger" *ngIf="createUser.controls.mobile.errors?.minlength">mobile is required Min 10 characters</span>
+          </div>
+        </div>
+
+        <button *ngIf="!getparamId" type="submit" class="btn btn-primary" (click)="addUser()">Submit</button>
+        <button *ngIf="getparamId" type="submit" class="btn btn-success" (click)="updateUser()">Update user</button>
+      </form>
+    </div>
+
+  </div>
+
+</div>

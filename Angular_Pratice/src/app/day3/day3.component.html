@@ -1,0 +1,86 @@
+<div class="container my-4" style="border:2px solid black">
+    <div class="row p-3">
+        <div class="col-md-12 text-center">
+            <div class="btn-group">
+                <button type="button " class="btn btn-danger p-2 mx-2" (click)="onFunction('turnary')">Turnary</button>
+<button type="button " class="btn btn-warning p-2 mx-2" (click)="onFunction('multipleClass')">Multiple-Classes</button>
+<button type="button " class="btn btn-success" (click)="onFunction('function')">Info</button>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="row" *ngIf="classFunction=='turnary'">
+        <div  [ngClass]="isSidePanelOpen ?'col-md-12':'col-md-8'">
+            <div class="card text-center">
+                <div class="card-header bg-info">
+                  Featured
+                  <button class="btn btn-secondary" style="float: right" (click)="addPanel()">SidePanel</button>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Special title treatment</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+                <div class="card-footer text-muted">
+                  2 days ago
+                </div>
+              </div>
+        </div>
+        <div class="col-md-4" *ngIf="!isSidePanelOpen">
+            <div class="card text-center">
+                <div class="card-header bg-info">
+                  Featured
+                  <button class="btn btn-secondary" style="float: right" (click)="closePanel()">Close</button>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Special title treatment</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+                <div class="card-footer text-muted">
+                  2 days ago
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="classFunction=='multipleClass'">
+        <div>
+            <button class="btn btn-primary" (click)="role='admin'">Admin</button>
+            <button class="btn btn-primary" (click)="role='user'">User</button>
+        </div>
+        <div  [ngClass]="{'col-md-12':isSidePanelOpen,'col-md-8':!isSidePanelOpen,'bg-primary':(role=='admin'),'bg-success':(role=='user')}">
+            <h1>{{role}}</h1>
+        </div>
+        <div class="col-md-4" *ngIf="!isSidePanelOpen">
+            <h1>User Section</h1>
+        </div>
+    </div>
+    <div class="row" *ngIf="classFunction=='function'">
+        <div class="col-md-4" [ngClass]="theme">
+            <h1>Function</h1>
+        </div>
+        <!-- <div class="col-md-4" [ngClass]="getTheme()">
+            <h1>Function</h1>
+        </div> -->
+        <div class="row">
+            <div class="col-md-6">
+                <select class="form-control" [(ngModel)]="stateValue">
+                    <option  value="" class="list">Select City</option>
+                    <option *ngFor="let state of stateArr"> 
+                        {{state}}
+                    </option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <!--  [ngClass]="state.value==''?'disabled':''" -->
+                <select class="form-control" [ngClass]="stateValue==''?'disabled':''">
+                    <option>aaaa</option>
+                    <option>bbb</option>
+                </select>
+            </div>
+        </div>
+    </div>
+   
+
+</div>
